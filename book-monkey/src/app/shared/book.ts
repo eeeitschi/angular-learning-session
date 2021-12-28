@@ -4,7 +4,7 @@ export interface Book {
     authors: string[];
     published: Date;
     subtitle?: string;
-    rating?: number;
+    rating: number;
     thumbnails?: Thumbnail[];
     description?: string;
 }
