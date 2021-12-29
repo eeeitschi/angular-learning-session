@@ -10,15 +10,20 @@ import { Observable } from 'rxjs';
 export class BookStoreService {
   private api = 'https://api4.angular-buch.com';
 
-  constructor(private http: HttpClient) {
-  
+  constructor(private http: HttpClient) { }
+
+  getAll(): Observable<Book[]> {
+    return this.http.get<any[]>(`${this.api}/books`);
   }
 
-  getAll(): Book[] {
-    return this.books;
+  getSingle(isbn: string | null): Observable<Book> {
+    return this.http.get<any>(`${this.api}/book/${isbn}`);
   }
 
-  getSingle(isbn: string | null): Book | undefined {
-    return this.books.find(book => book.isbn === isbn);
+  remove(isbn: string): Observable<any> {
+    return this.http.delete(
+      `${this.api}/book/${isbn}`, 
+      { responseType: 'text'}
+    );
   }
 }
