@@ -5,7 +5,7 @@ import { Book } from './book';
   providedIn: 'root'
 })
 export class BookStoreService {
-  books: Book[] = [];
+  books: Book[];
 
   constructor() {
     this.books = [
@@ -40,5 +40,9 @@ export class BookStoreService {
 
   getAll(): Book[] {
     return this.books;
+  }
+
+  getSingle(isbn: string | null): Book | undefined {
+    return this.books.find(book => book.isbn === isbn);
   }
 }
