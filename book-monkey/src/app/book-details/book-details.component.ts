@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
@@ -10,9 +10,9 @@ import { BookStoreService } from '../shared/book-store.service';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-  book: Book | undefined;
+  book!: Book;
 
-  constructor(private bs: BookStoreService, private route: ActivatedRoute) { }
+  constructor(private bs: BookStoreService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const params = this.route.snapshot.paramMap;
@@ -21,5 +21,16 @@ export class BookDetailsComponent implements OnInit {
 
   getRating(num: number): number[] {
     return new Array(num);
+  }
+
+  removeBook(): void {
+    if (confirm('Buch wirklich löschen?')) {
+      this.bs.remove(this.book?.isbn).subscribe(
+        res => this.router.navigate(
+            ['../'],
+            {relativeTo: this.route}
+        )
+      );
+    }
   }
 }
