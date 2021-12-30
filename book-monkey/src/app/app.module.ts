@@ -15,6 +15,7 @@ import { DateValueAccessorModule } from 'angular-date-value-accessor';
 import { BookFormComponent } from './book-form/book-form.component';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { FormMessagesComponent } from './form-messages/form-messages.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormMessagesComponent } from './form-messages/form-messages.component';
     SearchComponent,
     BookFormComponent,
     CreateBookComponent,
-    FormMessagesComponent
+    FormMessagesComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
