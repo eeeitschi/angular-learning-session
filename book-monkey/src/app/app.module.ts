@@ -10,6 +10,10 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { TokenInterceptor } from './shared/token.interceptor';
+import { FormsModule } from '@angular/forms';
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
+import { BookFormComponent } from './book-form/book-form.component';
+import { CreateBookComponent } from './create-book/create-book.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +22,16 @@ import { TokenInterceptor } from './shared/token.interceptor';
     BookListItemComponent,
     BookDetailsComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    BookFormComponent,
+    CreateBookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    DateValueAccessorModule
   ],
   providers: [
     {
