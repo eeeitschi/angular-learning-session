@@ -54,4 +54,14 @@ export class BookStoreService {
         catchError(this.errorHandler)
       );
   }
+
+  create(book: Book): Observable<any> {
+    return this.http.post(
+      `${this.api}/book`,
+      book,
+      { responseType: 'text'}
+    ).pipe(
+      catchError(this.errorHandler)
+    );
+  }
 }
