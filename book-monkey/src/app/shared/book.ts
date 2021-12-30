@@ -4,12 +4,12 @@ export interface Book {
     authors: string[];
     published: Date;
     subtitle?: string;
-    rating: number;
+    rating?: number;
     thumbnails?: Thumbnail[];
     description?: string;
-}
-
-export interface Thumbnail {
+  }
+  
+  export interface Thumbnail {
     url: string;
     title?: string;
-}
+  }

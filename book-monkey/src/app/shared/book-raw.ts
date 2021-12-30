@@ -4,12 +4,12 @@ export interface BookRaw {
     authors: string[];
     published: string;
     subtitle?: string;
-    rating: number;
+    rating?: number;
     thumbnails?: ThumbnailRaw[];
     description?: string;
-}
-
-export interface ThumbnailRaw {
+  }
+  
+  export interface ThumbnailRaw {
     url: string;
     title?: string;
-}
+  }
