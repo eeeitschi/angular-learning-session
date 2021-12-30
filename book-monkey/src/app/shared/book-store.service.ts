@@ -10,7 +10,7 @@ import { BookFactory } from './book-factory';
   providedIn: 'root'
 })
 export class BookStoreService {
-  private api = 'https://api4.angular-buch.com';
+  private api = 'https://api4.angular-buch.com/secure';
 
   constructor(private http: HttpClient) { }
 
