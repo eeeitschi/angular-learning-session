@@ -8,11 +8,10 @@ import { BookStoreService } from '../shared/book-store.service';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-
 export class BookListComponent implements OnInit {
   books: Book[] = [];
 
-  constructor(private bs: BookStoreService) {}
+  constructor(private bs: BookStoreService) { }
 
   ngOnInit(): void {
     this.bs.getAll().subscribe(res => this.books = res);

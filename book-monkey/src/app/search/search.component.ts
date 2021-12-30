@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { debounceTime, distinctUntilChanged, filter, Subject, switchMap, tap } from 'rxjs';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, tap, switchMap, filter } from 'rxjs/operators';
+
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
 
@@ -9,11 +11,12 @@ import { BookStoreService } from '../shared/book-store.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  foundBooks: Book[] = [];
+
   keyUp$ = new Subject<string>();
   isLoading = false;
+  foundBooks: Book[] = [];
 
-  constructor(private bs:BookStoreService) { }
+  constructor(private bs: BookStoreService) { }
 
   ngOnInit(): void {
     this.keyUp$.pipe(
@@ -23,7 +26,7 @@ export class SearchComponent implements OnInit {
       tap(() => this.isLoading = true),
       switchMap(searchTerm => this.bs.getAllSearch(searchTerm)),
       tap(() => this.isLoading = false)
-    ).subscribe(books => this.foundBooks = books);
+    )
+    .subscribe(books => this.foundBooks = books);
   }
-
 }
