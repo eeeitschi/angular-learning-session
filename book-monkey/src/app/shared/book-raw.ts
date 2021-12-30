@@ -5,7 +5,7 @@ export interface BookRaw {
     published: string;
     subtitle?: string;
     rating: number;
-    thumbnails?: ThumbnailRaw[];
+    thumbnails: ThumbnailRaw[];
     description?: string;
 }
 
