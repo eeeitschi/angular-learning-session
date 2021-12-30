@@ -12,7 +12,7 @@ export class BookFormComponent implements OnInit, OnChanges {
   bookForm: FormGroup;
 
   @Input() book?: Book;
-
+  
   @Input() set editing(isEditing: boolean) {
     const isbnControl = this.bookForm.get('isbn')!;
     if (isEditing) {

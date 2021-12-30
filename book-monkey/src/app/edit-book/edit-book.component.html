@@ -1,1 +1,8 @@
-<p>edit-book works!</p>
+<h1>Buch bearbeiten</h1>
+
+<bm-book-form
+    *ngIf="book"
+    (submitBook)="updateBook($event)"
+    [book]="book"
+    [editing]="true">
+</bm-book-form>
