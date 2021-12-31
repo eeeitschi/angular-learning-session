@@ -5,7 +5,7 @@ export class BookValidators {
         if(!control.value) { return null; }
 
         const numbers = control.value.replace(/-/g, '');
-        const isbnPattern = /(^\d{10}$) | (^\d{13}$)/;
+        const isbnPattern = /(^\d{10}$)|(^\d{13}$)/;
 
         if (isbnPattern.test(numbers)) {
             return null;

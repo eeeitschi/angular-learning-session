@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, AsyncValidator, ValidationErrors } from '@angular/forms';
 import { catchError, map, Observable, of } from 'rxjs';
-import { BookStoreService } from './book-store.service';
+import { BookStoreService } from '../../shared/book-store.service';
 
 @Injectable({
   providedIn: 'root'
