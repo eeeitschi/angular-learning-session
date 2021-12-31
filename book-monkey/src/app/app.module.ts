@@ -21,6 +21,7 @@ import { FormMessagesComponent } from './form-messages/form-messages.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { IsbnPipe } from './shared/isbn.pipe';
 import { ZoomDirective } from './shared/zoom.directive';
+import { DelayDirective } from './shared/delay.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ZoomDirective } from './shared/zoom.directive';
     FormMessagesComponent,
     EditBookComponent,
     IsbnPipe,
-    ZoomDirective
+    ZoomDirective,
+    DelayDirective
   ],
   imports: [
     BrowserModule,
