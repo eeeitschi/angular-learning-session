@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators, AbstractControl } from '@angular/forms';
 
-import { Book, Thumbnail } from '../shared/book';
+import { Book, Thumbnail } from '../../shared/book';
+import { BookExistsValidatorsService } from '../shared/book-exists-validators.service';
+import { BookValidators } from '../shared/book-validators';
 
 @Component({
   selector: 'bm-book-form',
@@ -12,28 +14,31 @@ export class BookFormComponent implements OnInit, OnChanges {
   bookForm: FormGroup;
 
   @Input() book?: Book;
-
+  
   @Input() set editing(isEditing: boolean) {
     const isbnControl = this.bookForm.get('isbn')!;
     if (isEditing) {
+      isbnControl.clearAsyncValidators();
       isbnControl.disable();
     } else {
+      isbnControl.setAsyncValidators(control => this.bookExistsValidator.validate(control));
       isbnControl.enable();
     }
   };
 
   @Output() submitBook = new EventEmitter<Book>();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private bookExistsValidator: BookExistsValidatorsService) {
     this.bookForm = this.fb.group({
       title: ['', Validators.required],
       subtitle: [''],
    
       isbn: ['', [
         Validators.required,
-        Validators.minLength(10),
-        Validators.maxLength(13)
-      ]],
+        BookValidators.isbnFormat
+      ],
+        (control: AbstractControl) => this.bookExistsValidator.validate(control)
+      ],
       description: [''],
       authors: this.buildAuthorsArray(['']),
       thumbnails: this.buildThumbnailsArray([
@@ -69,7 +74,7 @@ export class BookFormComponent implements OnInit, OnChanges {
   }
 
   private buildAuthorsArray(values: string[]): FormArray {
-    return this.fb.array(values, Validators.required);
+    return this.fb.array(values, BookValidators.atLeastOneAuthor);
   }
 
   private buildThumbnailsArray(values: Thumbnail[]): FormArray {
