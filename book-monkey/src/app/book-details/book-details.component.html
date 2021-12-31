@@ -15,7 +15,7 @@
       </div>
       <div class="four wide column">
         <h4>Erschienen</h4>
-        {{ book.published }}
+        {{ book.published | date:'longDate' }}
       </div>
       <div class="four wide column" *ngIf="book.rating">
         <h4>Rating</h4>
