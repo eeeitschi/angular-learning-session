@@ -13,9 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { TokenInterceptor } from './shared/token.interceptor';
 
-import { BooksModule } from './books/books.module';
-import { AdminModule } from './admin/admin.module';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,8 +23,6 @@ import { AdminModule } from './admin/admin.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BooksModule,
-    AdminModule
   ],
   providers: [
     {
