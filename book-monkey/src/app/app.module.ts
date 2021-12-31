@@ -20,6 +20,7 @@ import { CreateBookComponent } from './create-book/create-book.component';
 import { FormMessagesComponent } from './form-messages/form-messages.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { IsbnPipe } from './shared/isbn.pipe';
+import { ZoomDirective } from './shared/zoom.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { IsbnPipe } from './shared/isbn.pipe';
     CreateBookComponent,
     FormMessagesComponent,
     EditBookComponent,
-    IsbnPipe
+    IsbnPipe,
+    ZoomDirective
   ],
   imports: [
     BrowserModule,
