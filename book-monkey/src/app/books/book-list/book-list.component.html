@@ -1,6 +1,6 @@
 <div class="ui middle aligned selection divided list">
 
-  <ng-container *ngIf="books$ | async as books; else loading">
+  <ng-container *ngIf="books$ | async as books">
     <bm-book-list-item class="item"
     *ngFor="let b of books"
     [book]="b"
@@ -8,10 +8,12 @@
     <p *ngIf="books && !books.length">Es wurden noch keine Bücher eingetragen.</p>
   </ng-container>"
 
-  <ng-template #loading>
+  <ng-container *ngIf="loading$ | async">
     <div class="ui active dimmer">
-      <div class="ui large text loader">Daten werden geladen...</div>
+      <div class="ui large text loader">
+        Daten werden geladen...
+      </div>
     </div>
-  </ng-template>
-   
+  </ng-container>>
+
 </div>
