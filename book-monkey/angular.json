@@ -104,5 +104,8 @@
       }
     }
   },
-  "defaultProject": "book-monkey"
+  "defaultProject": "book-monkey",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

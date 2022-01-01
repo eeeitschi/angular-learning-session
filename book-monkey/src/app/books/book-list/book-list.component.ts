@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 
-import { Book } from '../../shared/book';
-import { BookStoreService } from '../../shared/book-store.service';
+import { Store, select } from '@ngrx/store'
+import { loadBooks } from '../store/book.actions';
+import { selectAllBooks, selectBooksLoading } from '../store/book.selectors';
 
 @Component({
   selector: 'bm-book-list',
@@ -11,11 +11,13 @@ import { BookStoreService } from '../../shared/book-store.service';
 })
 
 export class BookListComponent implements OnInit {
-  books$?: Observable<Book[]>;
+  
+  books$ = this.store.pipe(select(selectAllBooks));
+  loading$ = this.store.pipe(select(selectBooksLoading));
 
-  constructor(private bs: BookStoreService) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.books$ = this.bs.getAll();
+    this.store.dispatch(loadBooks());
   }
 }
