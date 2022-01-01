@@ -9,6 +9,7 @@ import { BookStoreService } from '../../shared/book-store.service';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
+
 export class BookListComponent implements OnInit {
   books$?: Observable<Book[]>;
 

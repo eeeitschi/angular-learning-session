@@ -3,6 +3,7 @@ import { Directive, Input, OnInit, TemplateRef, ViewContainerRef } from '@angula
 @Directive({
   selector: '[bmDelay]'
 })
+
 export class DelayDirective implements OnInit {
   @Input() bmDelay: number = 100;
 

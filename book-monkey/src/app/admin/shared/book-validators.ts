@@ -1,6 +1,7 @@
 import { ValidationErrors, AbstractControl, FormArray } from "@angular/forms";
 
 export class BookValidators {
+    
     static isbnFormat(control: AbstractControl): ValidationErrors | null {
         if(!control.value) { return null; }
 

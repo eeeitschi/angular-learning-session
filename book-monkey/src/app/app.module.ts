@@ -34,6 +34,7 @@ import { TokenInterceptor } from './shared/token.interceptor';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
   constructor() {
     registerLocaleData(localeDe);

@@ -10,6 +10,7 @@ import { BookFactory } from './book-factory';
 @Injectable({
   providedIn: 'root'
 })
+
 export class BookStoreService {
   private api = 'https://api4.angular-buch.com/secure';
 

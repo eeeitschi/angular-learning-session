@@ -9,6 +9,7 @@ import { BookStoreService } from '../../shared/book-store.service';
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.css']
 })
+
 export class BookDetailsComponent implements OnInit {
   book?: Book;
 

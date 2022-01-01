@@ -25,5 +25,4 @@ export class CreateBookComponent implements OnInit {
       this.router.navigate(['../..', 'books'], { relativeTo: this.route });
     });
   }
-
 }

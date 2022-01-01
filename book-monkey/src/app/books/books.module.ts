@@ -24,4 +24,5 @@ import { ZoomDirective } from './shared/zoom.directive';
     BooksRoutingModule
   ]
 })
+
 export class BooksModule { }
